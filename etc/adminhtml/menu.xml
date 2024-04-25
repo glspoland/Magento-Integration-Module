@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="GlsPoland_Shipping::gls" title="GLS Poland Shipping" translate="title" module="GlsPoland_Shipping" sortOrder="50" parent="Magento_Backend::stores" resource="GlsPoland_Shipping::gls"/>
+        <add id="GlsPoland_Shipping::gls_courier" title="Order GLS Courier" translate="title" module="GlsPoland_Shipping" sortOrder="10" parent="GlsPoland_Shipping::gls" action="gls_poland/courier/index" resource="GlsPoland_Shipping::gls_courier"/>
+        <add id="GlsPoland_Shipping::gls_logs" title="Logs" translate="title" module="GlsPoland_Shipping" sortOrder="20" parent="GlsPoland_Shipping::gls" action="gls_poland/logs/index" resource="GlsPoland_Shipping::gls_logs"/>
+        <add id="GlsPoland_Shipping::gls_configuration" title="Configuration" translate="title" module="GlsPoland_Shipping" sortOrder="30" parent="GlsPoland_Shipping::gls" action="gls_poland/config/index" resource="GlsPoland_Shipping::gls_configuration"/>
+    </menu>
+</config>

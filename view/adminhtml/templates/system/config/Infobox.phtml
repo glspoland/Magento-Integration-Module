@@ -1,0 +1,43 @@
+<?php
+/** @var $block \GlsPoland\Shipping\Block\Adminhtml\System\Config\Infobox */
+?>
+<div class="gls-poland-config">
+    <div class="info-box-header">
+        <?= $block->escapeHtml(__('GLS shipping module')) ?>
+        <span class="module-version"><?= $block->escapeHtml($block->getModuleVersion()) ?></span>
+        <?= $block->escapeHtml(__('from GLS Poland')) ?>
+    </div>
+    <div class="info-box-body">
+        <p class="message-update">
+            <input type="checkbox" id="release-notes-toggle" checked>
+            <label for="release-notes-toggle">
+                <?= $block->escapeHtml(__('Notify of new module versions')) ?>
+            </label>
+        </p>
+        <p class="message message-warning release-notes-content">
+            <?= $block->escapeHtml($block->getVersionInformation(), ['a']) ?>
+        </p>
+        <p class="message message-info">
+            <?php
+            $htmlMessage = __('Need help with configuration?') . ' ' . __('Read the') . ' ' .
+                '<a href="' . $block->getInstructions() . '" target="_blank">' . __('user manual') . '</a>' .
+                __(', to configure the module properly.');
+            ?>
+            <?= $block->escapeHtml($htmlMessage, ['a']) ?>
+        </p>
+    </div>
+</div>
+
+<script>
+    require(['jquery'], function ($) {
+        $(document).ready(function () {
+            $('#release-notes-toggle').change(function () {
+                if ($(this).is(':checked')) {
+                    $('.release-notes-content').slideDown();
+                } else {
+                    $('.release-notes-content').slideUp();
+                }
+            });
+        });
+    });
+</script>

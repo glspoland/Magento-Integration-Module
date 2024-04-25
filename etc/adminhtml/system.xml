@@ -1,0 +1,242 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="glspoland" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GLS Poland Shipping</label>
+                <field id="infoBox" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>GlsPoland\Shipping\Block\Adminhtml\System\Config\Infobox</frontend_model>
+                </field>
+                <field id="module_enable" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\YesNo</source_model>
+                    <config_path>carriers/glspoland/active</config_path>
+                </field>
+                <field id="module_mode" translate="label comment" type="select" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Active mode</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                    </depends>
+                    <comment><![CDATA[After entering the data, make sure that the environment is active.]]></comment>
+                    <source_model>GlsPoland\Shipping\Config\Model\Config\Source\Mode</source_model>
+                    <config_path>carriers/glspoland/mode</config_path>
+                </field>
+                <field id="logger_enable" translate="label comment" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable logger</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                    </depends>
+                    <comment><![CDATA[Advanced user settings.]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\YesNo</source_model>
+                    <config_path>carriers/glspoland/debug</config_path>
+                </field>
+                <group id="api_prod_settings" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Production API Settings</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                        <field id="module_mode">production</field>
+                    </depends>
+                    <field id="api_prod_username" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>User Name (Prod)</label>
+                        <config_path>carriers/glspoland/api_prod_username</config_path>
+                    </field>
+                    <field id="api_prod_password" translate="label comment" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Password (Prod)</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>carriers/glspoland/api_prod_password</config_path>
+                    </field>
+                    <field id="check_api_connection_prod" type="button" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>GlsPoland\Shipping\Block\Adminhtml\System\Config\CheckApiConnectionProd</frontend_model>
+                    </field>
+                </group>
+                <group id="api_sandbox_settings" translate="label" sortOrder="600" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sandbox API Settings</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                        <field id="module_mode">sandbox</field>
+                    </depends>
+                    <field id="api_sandbox_username" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>User Name (Sandbox)</label>
+                        <config_path>carriers/glspoland/api_sandbox_username</config_path>
+                    </field>
+                    <field id="api_sandbox_password" translate="label comment" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Password (Sandbox)</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>carriers/glspoland/api_sandbox_password</config_path>
+                    </field>
+                    <field id="check_api_connection_sandbox" type="button" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <frontend_model>GlsPoland\Shipping\Block\Adminhtml\System\Config\CheckApiConnectionSandbox</frontend_model>
+                    </field>
+                </group>
+                <group id="labels_settings" translate="label" sortOrder="700" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Labels Settings</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                    </depends>
+                    <field id="label" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Label format</label>
+                        <source_model>GlsPoland\Shipping\Config\Model\Config\Source\LabelPrint</source_model>
+                        <config_path>carriers/glspoland/label</config_path>
+                    </field>
+                    <field id="order_status_after_label_print_active" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Change Order Status After Label Printing</label>
+                        <source_model>Magento\Config\Model\Config\Source\YesNo</source_model>
+                        <config_path>carriers/glspoland/order_status_after_label_print_active</config_path>
+                    </field>
+                    <field id="order_status_after_label_print" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <depends>
+                            <field id="order_status_after_label_print_active">1</field>
+                        </depends>
+                        <label>New order status</label>
+                        <source_model>GlsPoland\Shipping\Config\Model\Config\Source\OrderStatus</source_model>
+                        <config_path>carriers/glspoland/order_status_after_label_print</config_path>
+                    </field>
+                    <field id="use_alternative_sender_address" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Use Alternative Sender Address</label>
+                        <comment><![CDATA[Contact your GLS representative to change your sender address settings, you need additional permissions to use alternative address.]]></comment>
+                        <source_model>Magento\Config\Model\Config\Source\YesNo</source_model>
+                        <config_path>carriers/glspoland/use_alternative_sender_address</config_path>
+                    </field>
+                    <field id="name1" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>First Name</label>
+                        <config_path>carriers/glspoland/sender_address_name1</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="name2" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Last name</label>
+                        <config_path>carriers/glspoland/sender_address_name2</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="name3" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Company</label>
+                        <config_path>carriers/glspoland/sender_address_name3</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                    </field>
+                    <field id="street" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Street Address</label>
+                        <config_path>carriers/glspoland/sender_address_street</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="country" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Country</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <config_path>carriers/glspoland/sender_address_country</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="zipcode" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Zip/Postal Code</label>
+                        <config_path>carriers/glspoland/sender_address_zipcode</config_path>
+                        <comment>Zipcode (ISO 3166-1 alfa-2)</comment>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                    <field id="phone" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Phone number</label>
+                        <config_path>carriers/glspoland/sender_address_phone</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                    </field>
+                    <field id="city" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>City</label>
+                        <config_path>carriers/glspoland/sender_address_city</config_path>
+                        <depends>
+                            <field id="use_alternative_sender_address">1</field>
+                        </depends>
+                        <validate>required-entry</validate>
+                    </field>
+                </group>
+                <group id="courier" translate="label" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>GLS - Courier</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                    </depends>
+                    <include path="GlsPoland_Shipping::system/gls_courier.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_10.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_12.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_sat.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_sat_10.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_sat_12.xml"/>
+                </group>
+                <group id="gls_parcel_shop" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>GLS pickup point</label>
+                    <depends>
+                        <field id="module_enable">1</field>
+                    </depends>
+                    <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\YesNo</source_model>
+                    </field>
+                    <field id="name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Method Name</label>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Method Title</label>
+                        <validate>validate-length maximum-length-50 minimum-length-0</validate>
+                    </field>
+                    <field id="price" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Price</label>
+                        <validate>validate-number validate-zero-or-greater</validate>
+                    </field>
+                    <field id="free_shipping_enable" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enable Free Shipping Threshold</label>
+                        <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    </field>
+                    <field id="free_shipping_subtotal" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Free Shipping Amount Threshold</label>
+                        <validate>validate-number validate-zero-or-greater</validate>
+                        <depends>
+                            <field id="free_shipping_enable">1</field>
+                        </depends>
+                    </field>
+                    <field id="position" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Position</label>
+                        <validate>validate-number-not-zero</validate>
+                    </field>
+                    <field id="weight" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Parcel Weight</label>
+                        <validate>validate-min-max-float</validate>
+                    </field>
+                    <field id="reference" translate="label comment" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Reference</label>
+                        <validate>validate-length maximum-length-25 minimum-length-0</validate>
+                    </field>
+                    <field id="comment" translate="label comment" type="textarea" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default Comment</label>
+                        <validate>validate-length maximum-length-80 minimum-length-0</validate>
+                    </field>
+                    <field id="allow_specific" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Ship to Applicable Countries</label>
+                        <source_model>GlsPoland\Shipping\Config\Model\Config\Source\ApplicableCountries</source_model>
+                    </field>
+                    <field id="specific_country" translate="label comment" type="multiselect" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Ship to specific Countries</label>
+                        <comment><![CDATA[Please contact GLS to verify service availability in other countries.]]></comment>
+                        <can_be_empty>1</can_be_empty>
+                        <depends>
+                            <field id="allow_specific">1</field>
+                        </depends>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <backend_model>Netresearch\ShippingCore\Model\Config\Backend\AllowedCountries</backend_model>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

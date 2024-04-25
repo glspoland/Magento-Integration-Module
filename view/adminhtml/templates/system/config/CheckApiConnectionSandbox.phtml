@@ -1,0 +1,42 @@
+<?php
+/** @var $block \GlsPoland\Shipping\Block\Adminhtml\System\Config\CheckApiConnectionSandbox */
+?>
+<button id="check_connection_sandbox_button"
+        type="button" class="action-default scalable"
+        onclick="checkGlsApiConnectionSandbox();">
+    <span><?= $block->escapeHtml(__('Check API Connection')) ?></span>
+</button>
+<div class="gls-api-connection-sandbox-status"></div>
+
+<script>
+    function checkGlsApiConnectionSandbox() {
+        require(['jquery', 'mage/translate', 'mage/loader'], function($, $t) {
+            $('body').loader('show');
+
+            const username = $('#carriers_glspoland_api_sandbox_settings_api_sandbox_username').val();
+            const password = $('#carriers_glspoland_api_sandbox_settings_api_sandbox_password').val();
+            const mode = 'sandbox';
+            const ajaxUrl = '<?= $block->escapeHtml($block->getAjaxUrl()) ?>';
+
+            $.ajax({
+                url: ajaxUrl,
+                method: "post",
+                dataType: "json",
+                data: {
+                    form_key: window.FORM_KEY,
+                    username: username,
+                    password: password,
+                    mode: mode
+                }
+            }).done( function(response) {
+                const message = response.message ? response.message : $t('No response message');
+
+                $('.gls-api-connection-sandbox-status').html(message);
+                $('body').loader('hide');
+            }).fail( function (jqXHR, textStatus, errorThrown) {
+                $('body').loader('hide');
+                alert($t('Error occurred while checking the API connection: ') + textStatus);
+            })
+        });
+    }
+</script>

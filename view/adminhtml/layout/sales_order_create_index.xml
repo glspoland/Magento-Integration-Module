@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="https://mapa.szybkapaczka.pl/css/v3.1/maps_sdk.css" src_type="url" />
+    </head>
+    <body>
+        <referenceBlock name="shipping_method">
+            <block class="Magento\Backend\Block\Template" name="popup_pap_template" template="GlsPoland_Shipping::popup-template.phtml">
+            </block>
+        </referenceBlock>
+        <referenceBlock name="order_create_shipping_form">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">GlsPoland_Shipping::order/create/shipping/method/form.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="clean_cache_after">
+        <observer name="gls_poland_clear_cache" instance="GlsPoland\Shipping\Observer\ClearCacheObserver"/>
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="gls_sales_model_service_quote_submit_before" instance="GlsPoland\Shipping\Observer\SalesModelServiceQuoteSubmitObserver" />
+    </event>
+    <event name="order_cancel_after">
+        <observer name="gls_order_cancel_after" instance="GlsPoland\Shipping\Observer\OrderCancelAfter" />
+    </event>
+    <event name="sales_order_save_before">
+        <observer name="gls_poland_sales_order_save_before" instance="GlsPoland\Shipping\Observer\SalesOrderSaveBefore" />
+    </event>
+    <event name="admin_system_config_changed_section_carriers">
+        <observer name="gls_poland_config_changed_section_carriers" instance="GlsPoland\Shipping\Observer\ConfigChangeObserver" />
+    </event>
+</config>

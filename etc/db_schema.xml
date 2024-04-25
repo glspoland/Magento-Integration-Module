@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="gls_logs" resource="default" engine="innodb">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="Log ID"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="50" comment="Log Type"/>
+        <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Log Description"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Log Message"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="sales_order" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_id" nullable="true" length="30" comment="GLS Poland Parcel Shop ID"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name1" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 1"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name2" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 2"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name3" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 3"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_country" nullable="true" length="10" comment="GLS Poland Parcel Shop Country"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_zipcode" nullable="true" length="20" comment="GLS Poland Parcel Shop Zipcode"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_city" nullable="true" length="35" comment="GLS Poland Parcel Shop City"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_street" nullable="true" length="60" comment="GLS Poland Parcel Shop Street"/>
+    </table>
+    <table name="quote" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_id" nullable="true" length="30" comment="GLS Poland Parcel Shop ID"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name1" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 1"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name2" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 2"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_name3" nullable="true" length="50" comment="GLS Poland Parcel Shop Name 3"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_country" nullable="true" length="10" comment="GLS Poland Parcel Shop Country"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_zipcode" nullable="true" length="20" comment="GLS Poland Parcel Shop Zipcode"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_city" nullable="true" length="35" comment="GLS Poland Parcel Shop City"/>
+        <column xsi:type="varchar" name="gls_poland_parcel_shop_street" nullable="true" length="60" comment="GLS Poland Parcel Shop Street"/>
+    </table>
+    <table name="sales_shipment" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="gls_poland_preparing_box_id" nullable="true" length="30" comment="GLS Poland Preparing Box ID"/>
+        <column xsi:type="mediumblob" name="gls_poland_preparing_box_ident" nullable="true" comment="Gls Poland Preparing Box Ident"/>
+        <column xsi:type="mediumblob" name="gls_poland_preparing_box_customs_dec" nullable="true" comment="Gls Poland Preparing Box Customs Dec"/>
+        <column xsi:type="varchar" name="gls_poland_shipping_confirmation_id" nullable="true" length="30" comment="GLS Poland Shipping Confirmation Id"/>
+        <column xsi:type="mediumblob" name="gls_poland_pickup_ident" nullable="true" comment="Gls Poland Pickup Ident"/>
+        <column xsi:type="mediumblob" name="gls_poland_pickup_parcels_labels" nullable="true" comment="Gls Poland Pickup Parcels Labels"/>
+        <column xsi:type="mediumblob" name="gls_poland_pickup_receipt" nullable="true" comment="Gls Poland Pickup Receipt"/>
+        <column xsi:type="mediumblob" name="gls_poland_pickup_consign_customs_dec" nullable="true" comment="Gls Poland Pickup Consign Customs Dec"/>
+        <column xsi:type="mediumblob" name="gls_poland_pickup_consign_pods" nullable="true" comment="Gls Poland Pickup Consign PODs"/>
+        <column xsi:type="varchar" name="gls_poland_shipping_label_format" nullable="true" length="30" comment="Gls Poland Shipping Label Format"/>
+    </table>
+</schema>

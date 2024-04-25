@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <glspoland>
+                <model>GlsPoland\Shipping\Model\Carrier\GlsShippingMethods</model>
+                <is_online>1</is_online>
+                <version>0.0.24</version>
+                <title>GLS Poland</title>
+                <active>1</active>
+                <mode>production</mode>
+                <debug>1</debug>
+                <label>one_label_on_a4_lt_pdf</label>
+                <order_status_after_label_print_active>0</order_status_after_label_print_active>
+                <order_status_after_label_print>processing</order_status_after_label_print>
+                <use_alternative_sender_address>0</use_alternative_sender_address>
+                <courier>
+                    <gls_courier>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS</name>
+                        <title>Transport zajmie 1-2 dni roboczych</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>1</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier>
+                    <gls_courier_10>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS - dostawa do 10:00</name>
+                        <title>Ekspresowa dostawa do godziny 10:00</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>2</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_10>
+                    <gls_courier_12>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS - dostawa do 12:00</name>
+                        <title>Ekspresowa dostawa do godziny 12:00</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>3</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_12>
+                    <gls_courier_sat>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS - dostawa w sobotę</name>
+                        <title>Ekspresowa dostawa w sobotę</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>4</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_sat>
+                    <gls_courier_sat_10>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS - dostawa w sobotę do 10:00</name>
+                        <title>Ekspresowa dostawa w sobotę do godziny 10:00</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>5</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_sat_10>
+                    <gls_courier_sat_12>
+                        <active>0</active>
+                        <cod>0</cod>
+                        <name>Kurier GLS - dostawa w sobotę do 12:00</name>
+                        <title>Ekspresowa dostawa w sobotę do godziny 12:00</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>6</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_sat_12>
+                </courier>
+                <gls_parcel_shop>
+                    <active>0</active>
+                    <name>Punkt odbioru GLS</name>
+                    <title>Transport zajmie 1-2 dni roboczych</title>
+                    <price>10</price>
+                    <free_shipping_enable>0</free_shipping_enable>
+                    <position>7</position>
+                    <weight>30</weight>
+                    <allow_specific>1</allow_specific>
+                    <specific_country>PL</specific_country>
+                </gls_parcel_shop>
+            </glspoland>
+        </carriers>
+    </default>
+</config>

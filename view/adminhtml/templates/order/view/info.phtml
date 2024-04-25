@@ -1,0 +1,99 @@
+<?php
+/**
+ * @var $block \Magento\Sales\Block\Adminhtml\Order\AbstractOrder
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+
+/** @var \Magento\Shipping\Helper\Data $shippingHelper */
+$shippingHelper = $block->getData('shippingHelper');
+
+/** @var \Magento\Tax\Helper\Data $taxHelper */
+$taxHelper = ($block->getData('taxHelper')) ?: $block->helper(Magento\Tax\Helper\Data::class);
+?>
+<?php $order = $block->getOrder() ?>
+<?php if ($order->getIsVirtual()):
+    return '';
+endif; ?>
+
+<?php /* Shipping Method */ ?>
+<div class="admin__page-section-item order-shipping-method">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?= $block->escapeHtml(__('Shipping &amp; Handling Information')) ?></span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <?php  if ($order->getTracksCollection()->count()): ?>
+            <p>
+                <a href="#" id="linkId" title="<?= $block->escapeHtmlAttr(__('Track Order')) ?>">
+                    <?= $block->escapeHtml(__('Track Order')) ?>
+                </a>
+            </p>
+            <?= /* @noEscape */ $secureRenderer->renderEventListenerAsTag(
+                'onclick',
+                "popWin('" . $block->escapeJs($shippingHelper->getTrackingPopupUrlBySalesModel($order)) .
+                "','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')",
+                'a#linkId'
+            ) ?>
+        <?php endif; ?>
+        <?php if ($order->getShippingDescription()): ?>
+            <strong><?= $block->escapeHtml($order->getShippingDescription()) ?></strong>
+
+            <?php if ($taxHelper->displayShippingPriceIncludingTax()): ?>
+                <?php $_excl = $block->displayShippingPriceInclTax($order); ?>
+            <?php else: ?>
+                <?php $_excl = $block->displayPriceAttribute('shipping_amount', false, ' '); ?>
+            <?php endif; ?>
+            <?php $_incl = $block->displayShippingPriceInclTax($order); ?>
+
+            <?= /** @noEscape */ $_excl ?>
+            <?php if ($taxHelper->displayShippingBothPrices() && $_incl != $_excl): ?>
+                (<?= $block->escapeHtml(__('Incl. Tax')) ?> <?= /** @noEscape */ $_incl ?>)
+            <?php endif; ?>
+        <?php else: ?>
+            <?= $block->escapeHtml(__('No shipping information available')) ?>
+        <?php endif; ?>
+    </div>
+    <?php
+    $parcelShopId = $order->getData('gls_poland_parcel_shop_id');
+    if ($parcelShopId):
+        $parcelShopName1 = $order->getData('gls_poland_parcel_shop_name1');
+        $parcelShopName2 = $order->getData('gls_poland_parcel_shop_name2');
+        $parcelShopName3 = $order->getData('gls_poland_parcel_shop_name3');
+        $parcelShopCountry = $order->getData('gls_poland_parcel_shop_country');
+        $parcelShopZipcode = $order->getData('gls_poland_parcel_shop_zipcode');
+        $parcelShopCity = $order->getData('gls_poland_parcel_shop_city');
+        $parcelShopStreet = $order->getData('gls_poland_parcel_shop_street');
+        ?>
+        <div class="admin__page-section-item-content">
+            <br/><strong><?= $block->escapeHtml(__('GLS Poland Parcel Shop')) ?></strong>
+            <br/><strong><?= $block->escapeHtml(__('ID: ')) ?></strong><?= $block->escapeHtml($parcelShopId) ?>
+            <?php
+            if ($parcelShopName1 !== null && $parcelShopName1 !== $parcelShopId):  ?>
+                <br/><?= $block->escapeHtml($parcelShopName1) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopName2 !== null && $parcelShopName2 !== $parcelShopId):  ?>
+                <br/><?= $block->escapeHtml($parcelShopName2) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopName3 !== null && $parcelShopName3 !== $parcelShopId):  ?>
+                <br/><?= $block->escapeHtml($parcelShopName3) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopStreet !== null):  ?>
+                <br/><?= $block->escapeHtml($parcelShopStreet) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopZipcode !== null):  ?>
+                <br/><?= $block->escapeHtml($parcelShopZipcode) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopCity !== null):  ?>
+                <?= $block->escapeHtml(' ' . $parcelShopCity) ?>
+            <?php endif; ?>
+            <?php
+            if ($parcelShopCountry !== null):  ?>
+                <br/><?= $block->escapeHtml(' ' . $block->getCountryName($parcelShopCountry)) ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+</div>

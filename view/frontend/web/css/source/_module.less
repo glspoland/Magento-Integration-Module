@@ -1,0 +1,71 @@
+body.checkout-index-index {
+    .nrshipping-settings.glsgroup {
+        h4.shipping-option-label {
+            display: none;
+        }
+
+        input.checkbox + label {
+            font-weight: @font-weight__semibold;
+        }
+    }
+
+    .gls-map-modal .modal-content > div > div {
+        min-height: 550px;
+    }
+
+    .gls-map-modal .modal-content canvas {
+        transform: none !important;
+        width: 100%;
+    }
+    
+    .ol-viewport {
+        min-height: 550px;
+    }
+
+    .ol-popup {
+        max-width: 80%;
+    }
+
+    .gls-map-modal {
+        left: 0;
+    }
+
+    .gls-point-address {
+        padding: 8px 0 16px;
+    }
+
+    .gls-point-address p {
+        margin-bottom: 0;
+    }
+
+    .gls-data {
+        display: none;
+    }
+
+    .table-checkout-shipping-method .row.active .gls-data {
+        display: block;
+    }
+
+    .gls-map-modal .modal-content > div {
+        display: none;
+    }
+    td.col-method[id^='label_method_gls'] {
+        position: relative;
+    }
+    td.col-method[id^='label_method_gls_courier']::before {
+        background: url('GlsPoland_Shipping::images/gls-kurier.jpg') no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 51px;
+        width: 150px;
+    }
+    td.col-method[id^='label_method_gls_parcel']::before {
+        background: url('GlsPoland_Shipping::images/gls-szybka-paczka.jpg') no-repeat;
+        background-size: contain;
+        content: '';
+        display: block;
+        height: 66px;
+        width: 150px;
+    }
+}

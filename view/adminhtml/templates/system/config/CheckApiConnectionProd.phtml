@@ -1,0 +1,43 @@
+<?php
+/** @var $block \GlsPoland\Shipping\Block\Adminhtml\System\Config\CheckApiConnectionProd */
+?>
+<button id="check_connection_prod_button"
+        type="button"
+        class="action-default scalable"
+        onclick="checkGlsApiConnectionProd();">
+    <span><?= $block->escapeHtml(__('Check API Connection')) ?></span>
+</button>
+<div class="gls-api-connection-prod-status"></div>
+
+<script>
+    function checkGlsApiConnectionProd() {
+        require(['jquery', 'mage/translate', 'mage/loader'], function($, $t) {
+            $('body').loader('show');
+
+            const username = $('#carriers_glspoland_api_prod_settings_api_prod_username').val();
+            const password = $('#carriers_glspoland_api_prod_settings_api_prod_password').val();
+            const mode = 'production';
+            const ajaxUrl = '<?= $block->escapeHtml($block->getAjaxUrl()) ?>';
+
+            $.ajax({
+                url: ajaxUrl,
+                method: "post",
+                dataType: "json",
+                data: {
+                    form_key: window.FORM_KEY,
+                    username: username,
+                    password: password,
+                    mode: mode
+                }
+            }).done( function(response) {
+                const message = response.message ? response.message : $t('No response message');
+
+                $('.gls-api-connection-prod-status').html(message);
+                $('body').loader('hide');
+            }).fail( function (jqXHR, textStatus, errorThrown) {
+                $('body').loader('hide');
+                alert($t('Error occurred while checking the API connection: ') + textStatus);
+            })
+        });
+    }
+</script>

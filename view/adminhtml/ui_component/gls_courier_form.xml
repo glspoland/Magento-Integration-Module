@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">gls_courier_form.gls_courier_form_data_source</item>
+            <item name="deps" xsi:type="string">gls_courier_form.gls_courier_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Order GLS Courier</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="string">GlsPoland\Shipping\Block\Adminhtml\Courier\SendButton</item>
+        </item>
+    </argument>
+    <dataSource name="gls_courier_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">GlsPoland\Shipping\Model\CourierForm\DataProvider</argument>
+            <argument name="name" xsi:type="string">gls_courier_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                <item name="submit_url" xsi:type="url" path="*/*/save" />
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="gls_courier_form">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Parcel pickup details</item>
+            </item>
+        </argument>
+        <field name="parcel_count">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Parcels count</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">parcel_count</item>
+                    <item name="source" xsi:type="string">gls_courier_form</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="additionalClasses" xsi:type="string">gls-courier-input-text</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-number" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="receipt_date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Date of receipt</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="dataScope" xsi:type="string">receipt_date</item>
+                    <item name="source" xsi:type="string">gls_courier_form</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="additionalClasses" xsi:type="string">gls-courier-input-date</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-date" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="options" xsi:type="array">
+                        <item name="showsTime" xsi:type="boolean">false</item>
+                        <item name="timeOnly" xsi:type="boolean">false</item>
+                        <item name="dateFormat" xsi:type="string">dd-MM-yyyy</item>
+                        <item name="showButtonPanel" xsi:type="boolean">false</item>
+                        <item name="minDate" xsi:type="string">${ $.provider }:data.receipt_date_start_date</item>
+                        <item name="defaultDate" xsi:type="string">${ $.provider }:data.receipt_date_start_date</item>
+                    </item>
+                    <item name="component" xsi:type="string">GlsPoland_Shipping/js/form/element/date</item>
+                </item>
+            </argument>
+        </field>
+        <field name="use_email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Send email confirmation</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="dataScope" xsi:type="string">use_email</item>
+                    <item name="source" xsi:type="string">gls_courier_form</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="additionalClasses" xsi:type="string">gls-courier-input-select</item>
+                    <item name="options" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="value" xsi:type="string">0</item>
+                            <item name="label" xsi:type="string" translate="true">No</item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="value" xsi:type="string">1</item>
+                            <item name="label" xsi:type="string" translate="true">Yes</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

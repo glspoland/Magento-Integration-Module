@@ -1,0 +1,49 @@
+{
+    "gls_logs": {
+        "column": {
+            "id": true,
+            "created_at": true,
+            "type": true,
+            "description": true,
+            "message": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "gls_poland_parcel_shop_id": true,
+            "gls_poland_parcel_shop_name1": true,
+            "gls_poland_parcel_shop_name2": true,
+            "gls_poland_parcel_shop_name3": true,
+            "gls_poland_parcel_shop_country": true,
+            "gls_poland_parcel_shop_zipcode": true,
+            "gls_poland_parcel_shop_city": true,
+            "gls_poland_parcel_shop_street": true
+        }
+    },
+    "quote": {
+        "column": {
+            "gls_poland_parcel_shop_id": true,
+            "gls_poland_parcel_shop_name1": true,
+            "gls_poland_parcel_shop_name2": true,
+            "gls_poland_parcel_shop_name3": true,
+            "gls_poland_parcel_shop_country": true,
+            "gls_poland_parcel_shop_zipcode": true,
+            "gls_poland_parcel_shop_city": true,
+            "gls_poland_parcel_shop_street": true
+        }
+    },
+    "sales_shipment": {
+        "column": {
+            "gls_poland_preparing_box_id": true,
+            "gls_poland_preparing_box_ident": true,
+            "gls_poland_preparing_box_customs_dec": true,
+            "gls_poland_shipping_confirmation_id": true,
+            "gls_poland_pickup_ident": true,
+            "gls_poland_pickup_parcels_labels": true,
+            "gls_poland_pickup_receipt": true,
+            "gls_poland_pickup_consign_customs_dec": true,
+            "gls_poland_pickup_consign_pods": true,
+            "gls_poland_shipping_label_format": true
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="core_layout_render_element">
+        <observer name="add_gls_shipping_block" instance="GlsPoland\Shipping\Observer\AddGlsShippingBlock"/>
+    </event>
+    <event name="adminhtml_block_html_before">
+        <observer name="add_gls_packaging_block" instance="GlsPoland\Shipping\Observer\AddGlsPolandBlocks"/>
+    </event>
+    <event name="payment_method_is_active">
+        <observer name="gls_poland_shipping_disable_cod" instance="GlsPoland\Shipping\Observer\PaymentMethodIsActiveObserver" />
+    </event>
+</config>

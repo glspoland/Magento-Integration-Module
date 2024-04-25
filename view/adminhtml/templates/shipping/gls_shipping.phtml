@@ -1,0 +1,34 @@
+<?php
+/**
+ * @var $block \GlsPoland\Shipping\Block\Adminhtml\Shipping\GlsPackaging
+ */
+?>
+<?php if ($block->hasPreparingBoxId()): ?>
+    <p>
+        <span><?= $block->escapeHtml(__('GLS Poland Preparing Box ID: ')) ?></span>
+        <span><strong><?= $block->escapeHtml($block->getPreparingBoxId()) ?></strong></span>
+    </p>
+    <?php if ($block->hasPreparingBoxIdent() || $block->hasPreparingBoxCustomsDec()): ?>
+        <p>
+            <?= $block->getPrintPreparingBoxButtonsHtml() ?>
+        </p>
+    <?php endif; ?>
+    <?php if (!$block->hasShippingConfirmationId()): ?>
+        <p>
+            <?= $block->getCreatePickupButtonHtml() ?>
+        </p>
+    <?php else: ?>
+        <p>
+            <span><?= $block->escapeHtml(__('GLS Poland Shipping Confirmation ID: ')) ?></span>
+            <span><strong><?= $block->escapeHtml($block->getShippingConfirmationId()) ?></strong></span>
+        </p>
+        <?php if ($block->hasPickupIdent()
+            || $block->hasPickupParcelsLabels()
+            || $block->hasPickupReceipt()
+            || $block->hasPickupConsignCustomsDec()
+            || $block->hasPickupConsignPods()): ?>
+            <p><?= $block->getPrintPickupButtonsHtml() ?></p>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>
+

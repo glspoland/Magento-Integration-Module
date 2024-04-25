@@ -1,0 +1,143 @@
+@main-text-color: #303030;
+@module-version-color: #eb5202;
+
+.gls-courier-message-info {
+    margin-bottom: 3rem;
+}
+
+.gls-courier-input-text .admin__field-control .admin__control-text {
+    width: 15rem;
+}
+
+.gls-poland-config {
+    .info-box-header {
+        clear: both;
+        color: @main-text-color;
+        font-size: 1.9rem;
+        font-weight: 600;
+        letter-spacing: .025em;
+        padding: 1.9rem 2.8rem 1.9rem 0;
+        position: relative;
+        text-decoration: none;
+        transition: color .15s linear;
+
+        .module-version {
+            color: @module-version-color;
+        }
+    }
+
+    .info-box-body {
+        .message-update {
+            margin: 0 0 10px;
+            padding: 1.8rem 4rem 1.8rem 0;
+        }
+
+        .message.message-warning.release-notes-content,
+        .message.message-info {
+            margin: 0 0 10px;
+        }
+    }
+}
+
+td.label:has( + .value .required-entry ) label {
+    padding-right: 1rem;
+}
+
+td.label:has( + .value .required-entry ) label::after {
+    color: @module-version-color;
+    content: '*';
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-left: .4rem;
+    margin-top: .2rem;
+    position: absolute;
+    z-index: 1;
+}
+
+.gls-poland-description-wrapper {
+    margin: 1.5rem 0;
+
+    .shipping-description-title {
+        font-weight: 700;
+    }
+
+    .shipping-description-content {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.gls-api-connection-sandbox-status,
+.gls-api-connection-prod-status {
+    margin: 10px 0;
+}
+
+.label-status {
+    .failed::before {
+        background-image: url('GlsPoland_Shipping::image/x_mark_svg.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: '';
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+    }
+    .processed::before {
+        background-image: url('GlsPoland_Shipping::image/checkmark_svg.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: '';
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+    }
+    .pending::before {
+        background-image: url('GlsPoland_Shipping::image/loading_svg.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: '';
+        display: inline-block;
+        height: 22px;
+        width: 22px;
+    }
+}
+
+body.sales-order_create-index {
+    .gls-map-modal .modal-content > div > div {
+        min-height: 550px;
+    }
+
+    .gls-map-modal .modal-content canvas {
+        transform: none !important;
+        width: 100%;
+    }
+    
+    .ol-viewport {
+        min-height: 550px;
+    }
+
+    .ol-popup {
+        max-width: 80%;
+    }
+
+    .gls-map-modal {
+        left: 0;
+    }
+
+    .gls-point-address {
+        padding: 8px 0 16px;
+    }
+
+    .gls-point-address p {
+        margin-bottom: 0;
+    }
+
+    .gls-map-modal .modal-content > div {
+        display: none;
+    }
+}

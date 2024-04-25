@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="gls_poland_parcel_shop_id" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name1" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name2" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name3" type="string"/>
+        <attribute code="gls_poland_parcel_shop_country" type="string"/>
+        <attribute code="gls_poland_parcel_shop_zipcode" type="string"/>
+        <attribute code="gls_poland_parcel_shop_city" type="string"/>
+        <attribute code="gls_poland_parcel_shop_street" type="string"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="gls_poland_parcel_shop_id" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name1" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name2" type="string"/>
+        <attribute code="gls_poland_parcel_shop_name3" type="string"/>
+        <attribute code="gls_poland_parcel_shop_country" type="string"/>
+        <attribute code="gls_poland_parcel_shop_zipcode" type="string"/>
+        <attribute code="gls_poland_parcel_shop_city" type="string"/>
+        <attribute code="gls_poland_parcel_shop_street" type="string"/>
+    </extension_attributes>
+</config>

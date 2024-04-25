@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Shipping\Model\CarrierFactory">
+        <arguments>
+            <argument name="carriers" xsi:type="array">
+                <item name="glspoland" xsi:type="string">GlsPoland\Shipping\Model\Carrier\GlsShippingMethods</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Quote\Api\CartRepositoryInterface">
+        <plugin name="gls_shipping_cart_repository_plugin" type="GlsPoland\Shipping\Plugin\CartRepositoryPlugin" />
+    </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="gls_shipping_order_repository_plugin" type="GlsPoland\Shipping\Plugin\OrderRepositoryPlugin" />
+    </type>
+    <type name="Magento\Sales\Block\Order\Info">
+        <plugin name="gls_shipping_change_order_template" type="GlsPoland\Shipping\Plugin\ChangeOrderTemplatePlugin" />
+    </type>
+    <type name="Magento\Quote\Model\ShippingMethodManagement">
+        <plugin name="gls_poland_shipping_method_management" type="GlsPoland\Shipping\Plugin\ShippingMethodManagementPlugin" />
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="gls_shipping_logs_grid_data_source" xsi:type="string">GlsPoland\Shipping\Model\ResourceModel\Log\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <arguments>
+            <argument name="additionalChecks" xsi:type="array">
+                <item name="gls_shipping" xsi:type="string">gls_shipping</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Payment\Model\Checks\SpecificationFactory">
+        <arguments>
+            <argument name="mapping" xsi:type="array">
+                <item name="gls_shipping" xsi:type="object">GlsPoland\Shipping\Model\Payment\Checks\CanUseForShippingMethod</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Netresearch\ShippingCore\Model\LabelStatus\LabelStatusManagement">
+        <arguments>
+            <argument name="carrierCodes" xsi:type="array">
+                <item name="glspoland" xsi:type="const">GlsPoland\Shipping\Model\Carrier\GlsShippingMethods::CARRIER_CODE</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="GlsPoland\Shipping\Model\ResourceModel\Log\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">gls_logs</argument>
+            <argument name="resourceModel" xsi:type="string">GlsPoland\Shipping\Model\ResourceModel\Log</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\Sales\Block\Adminhtml\Order\AbstractOrder" type="GlsPoland\Shipping\Block\Adminhtml\Order\CustomOrderBlock"/>
+    <preference for="Magento\Sales\Block\Adminhtml\Order\Create\Shipping\Method\Form" type="GlsPoland\Shipping\Block\Order\Create\Shipping\Method\CustomFormBlock"/>
+    <preference for="Magento\Sales\Block\Order\Info" type="GlsPoland\Shipping\Block\Order\CustomInfoBlock"/>
+    <preference for="Magento\Shipping\Controller\Adminhtml\Order\Shipment\PrintLabel" type="GlsPoland\Shipping\Controller\Adminhtml\Order\Shipment\CustomPrintLabel" />
+    <preference for="Magento\Shipping\Controller\Adminhtml\Order\Shipment\MassPrintShippingLabel" type="GlsPoland\Shipping\Controller\Adminhtml\Order\Shipment\CustomMassPrintShippingLabel" />
+    <preference for="Magento\Shipping\Controller\Adminhtml\Shipment\MassPrintShippingLabel" type="GlsPoland\Shipping\Controller\Adminhtml\Shipment\CustomMassPrintShippingLabel" />
+    <preference for="Magento\Shipping\Model\Shipping\LabelGenerator" type="GlsPoland\Shipping\Model\Shipping\LabelGenerator"/>
+    <preference for="GlsPoland\Shipping\Api\Consign\ConsignIDInterface" type="GlsPoland\Shipping\Model\ConsignID" />
+    <preference for="GlsPoland\Shipping\Api\Consign\ConsignsIDsArrayInterface" type="GlsPoland\Shipping\Model\ConsignsIDsArray" />
+    <preference for="GlsPoland\Shipping\Api\Label\LabelInterface" type="GlsPoland\Shipping\Model\Label" />
+    <preference for="GlsPoland\Shipping\Api\Label\LabelsArrayInterface" type="GlsPoland\Shipping\Model\LabelsArray" />
+    <preference for="GlsPoland\Shipping\Api\Pickup\PickupInterface" type="GlsPoland\Shipping\Model\Pickup" />
+    <preference for="GlsPoland\Shipping\Api\Pickup\PickupsIDsArrayInterface" type="GlsPoland\Shipping\Model\PickupsIDsArray" />
+    <preference for="GlsPoland\Shipping\Api\Pod\PodInterface" type="GlsPoland\Shipping\Model\Pod" />
+    <preference for="GlsPoland\Shipping\Api\Pod\PodsArrayInterface" type="GlsPoland\Shipping\Model\PodsArray" />
+</config>
