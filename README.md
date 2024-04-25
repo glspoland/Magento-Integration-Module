@@ -7,8 +7,6 @@ To install the GLS Poland Shipping module use composer.
 ### Add repository
 Add new repository to your composer.json file with:
 
-/** TODO: Add a GLS client repo **/
-
 ```bash
 composer config repositories.gls-poland git https://github.com/glspoland/Magento-Integration-Module.git
 ```
@@ -16,10 +14,9 @@ composer config repositories.gls-poland git https://github.com/glspoland/Magento
 ### Require repository
 Then you can require the repo with:
 
-/** TODO: Add a GLS client repo **/
 
 ```bash
-composer require glspoland/module-shipping:0.0.24
+composer require glspoland/module-shipping
 ```
 
 ### Module Setup
