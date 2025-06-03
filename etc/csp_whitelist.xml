@@ -5,29 +5,35 @@
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
                 <value id="osm" type="host">*.openstreetmap.org</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
         <policy id="connect-src">
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
                 <value id="osm" type="host">*.openstreetmap.org</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
         <policy id="media-src">
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
         <policy id="img-src">
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
                 <value id="osm" type="host">*.openstreetmap.org</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
+                <value id="gls-poland-pl" type="host">*.gls-poland.com.pl/</value>
             </values>
         </policy>
         <policy id="style-src">
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
                 <value id="googleapis" type="host">fonts.googleapis.com</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
         <policy id="font-src">
@@ -35,11 +41,13 @@
                 <value id="gls" type="host">*.gls.com</value>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
                 <value id="gstatic" type="host">fonts.gstatic.com</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
         <policy id="frame-src">
             <values>
                 <value id="szybkapaczka" type="host">*.szybkapaczka.pl</value>
+                <value id="gls-poland" type="host">*.gls-poland.com/</value>
             </values>
         </policy>
     </policies>

@@ -39,7 +39,7 @@ define([
 
         initialize: function () {
             this._super();
-            
+
             if (this.checkParcelDeliveryMethodExists()) {
                 this.initMapModal();
                 this.showPopupWithMap();
@@ -64,7 +64,7 @@ define([
                 modalClass: this.mapModalClass,
                 buttons: false
             };
-            
+
             modal(options, $(this.mapModalId));
 
             if (!this.mapInitialization()) {
@@ -78,7 +78,7 @@ define([
 
         showPopupWithMap: function() {
             var self = this;
-            
+
             $(document).on('click', this.choosePointSelector, function(e) {
                 e.preventDefault();
                 $(self.mapModalId).modal('openModal');
@@ -105,21 +105,21 @@ define([
             var parcelWeight = this.getWeight() || this.defaultParcelWeight;
             this.countryId(selectCountry);
             this.parcelWeight(parcelWeight);
-            
+
             if (selectCountry !== this.defaultCountryId) {
                 countryId = selectCountry;
                 languageMap = selectCountry !== this.defaultCountryId ? this.englishLang : this.polishLang;
             }
 
             SzybkaPaczkaMap.init({
-                lang: languageMap.toLowerCase(),
-                country_parcelshops: countryId.toLowerCase(),
+                lang: languageMap.toUpperCase(),
+                country_parcelshops: countryId.toUpperCase(),
                 el: this.mapElement,
                 geolocation: this.geolocation,
                 map_type: this.mapType,
                 parcel_weight: parcelWeight
             });
-    
+
             this.mapInitialization(true);
         },
 
@@ -182,7 +182,7 @@ define([
         fillDataOnInitiate: function (pointData) {
             this.fillAddressData(pointData.city, pointData.postal_code, pointData.street);
         },
-        
+
         fillInputValidate: function (id) {
             if (id !== null) {
                 $(this.glsInputValidateSelector).val(id);
@@ -222,7 +222,7 @@ define([
 
         removeParcelDataLocalStorage: function() {
             localStorage.removeItem(this.glsParcelPointDatalocalStorageKey);
-        }, 
+        },
 
         getWeight: function() {
             return $(this.glsInputValidateSelector).attr('data-weight');
