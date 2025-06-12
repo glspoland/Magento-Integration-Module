@@ -1,7 +1,7 @@
 var config = {
     paths: {
         'SzybkaPaczkaMap': [
-            'https://mapa.szybkapaczka.pl/js/v3.1/maps_sdk'
+            'https://mapa.gls-poland.com/js/v4.0/maps_sdk'
         ],
     },
     config: {

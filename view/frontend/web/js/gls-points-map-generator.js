@@ -11,7 +11,7 @@ define([
     'SzybkaPaczkaMap',
     'domReady!'
 ], function (ko, Component, $, quote, shippingService, $t, modal, customerData, url) {
-    
+
     'use strict';
     return Component.extend({
         defaults: {
@@ -77,7 +77,7 @@ define([
                     self.glsChosenPointAddress({});
                     self.clearParcelIdInQuote();
                 }
-                
+
 
                 if ($(self.glsDataClassCss).length === 0 && parcel) {
                     var code = parcel.method_code + '_' + parcel.carrier_code;
@@ -92,7 +92,7 @@ define([
 
         isParcelAvailable: function(rates) {
             var self = this;
-            
+
             return rates.find((element) => element.method_code == self.methodCodeParcel);
         },
 
@@ -194,7 +194,7 @@ define([
                 modalClass: this.mapModalClass,
                 buttons: false
             };
-            
+
             modal(options, $(this.mapModalId));
 
             if (!this.mapInitialization()) {
@@ -230,14 +230,14 @@ define([
             }
 
             SzybkaPaczkaMap.init({
-                lang: languageMap.toLowerCase(),
-                country_parcelshops: countryId.toLowerCase(),
+                lang: languageMap.toUpperCase(),
+                country_parcelshops: countryId.toUpperCase(),
                 el: this.mapElement,
                 geolocation: this.geolocation,
                 map_type: this.mapType,
                 parcel_weight: parcelWeight
             });
-    
+
             window.addEventListener('get_parcel_shop', function (event) {
                 if (event.target.ParcelShop.selected) {
                     var { city, id, postal_code, street } = event.target.ParcelShop.selected;
@@ -278,7 +278,7 @@ define([
                 });
             });
         },
-        
+
         destroyMap: function() {
             $('#'+this.mapElement).empty();
         },
