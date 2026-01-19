@@ -48,8 +48,8 @@ class Collection extends AbstractCollection
         ManagerInterface $eventManager,
         Log $log,
         TimezoneInterface $timezone,
-        AdapterInterface $connection = null,
-        AbstractDb $resource = null
+        ?AdapterInterface $connection = null,
+        ?AbstractDb $resource = null
     ) {
         parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $connection, $resource);
 
