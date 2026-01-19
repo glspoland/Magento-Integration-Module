@@ -1,6 +1,5 @@
 <?php
 //phpcs:disable PSR2.Methods.FunctionCallSignature.SpaceBeforeOpenBracket
-//phpcs:disable Magento2.Security.IncludeFile.FoundIncludeFile
 
 use GlsPoland\Shipping\Model\ShippingMethods;
 
@@ -96,4 +95,7 @@ $isGlsPolandShipping = isset(ShippingMethods::METHODS[$shippingMethod]);
 script;
 ?>
 <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
-<?php include($block->getTemplateFile('Magento_Shipping::order/packaging/popup_content.phtml')) ?>
+<?= /* @noEscape */ $block->getLayout()
+    ->createBlock(\Magento\Framework\View\Element\Template::class)
+    ->setTemplate('Magento_Shipping::order/packaging/popup_content.phtml')
+    ->toHtml() ?>
