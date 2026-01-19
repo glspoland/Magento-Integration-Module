@@ -116,31 +116,31 @@ class ServiceSDS
      */
     public function __construct(
         string $id,
-        string $name1 = null,
-        string $name2 = null,
-        string $name3 = null,
-        string $country = null,
-        string $zipcode = null,
-        string $city = null,
-        string $street = null,
-        string $phone = null,
-        string $email = null,
-        float $gps_lati = null,
-        float $gps_long = null,
-        string $mon_open = null,
-        string $mon_close = null,
-        string $tue_open = null,
-        string $tue_close = null,
-        string $wed_open = null,
-        string $wed_close = null,
-        string $thu_open = null,
-        string $thu_close = null,
-        string $fri_open = null,
-        string $fri_close = null,
-        string $sat_open = null,
-        string $sat_close = null,
-        string $sun_open = null,
-        string $sun_close = null
+        ?string $name1 = null,
+        ?string $name2 = null,
+        ?string $name3 = null,
+        ?string $country = null,
+        ?string $zipcode = null,
+        ?string $city = null,
+        ?string $street = null,
+        ?string $phone = null,
+        ?string $email = null,
+        ?float $gps_lati = null,
+        ?float $gps_long = null,
+        ?string $mon_open = null,
+        ?string $mon_close = null,
+        ?string $tue_open = null,
+        ?string $tue_close = null,
+        ?string $wed_open = null,
+        ?string $wed_close = null,
+        ?string $thu_open = null,
+        ?string $thu_close = null,
+        ?string $fri_open = null,
+        ?string $fri_close = null,
+        ?string $sat_open = null,
+        ?string $sat_close = null,
+        ?string $sun_open = null,
+        ?string $sun_close = null
     ) {
         $this->setId($id);
         $this->setName1($name1);
@@ -207,7 +207,7 @@ class ServiceSDS
      * @param string|null $name1
      * @return void
      */
-    public function setName1(string $name1 = null): void
+    public function setName1(?string $name1 = null): void
     {
         $this->name1 = $name1;
     }
@@ -228,7 +228,7 @@ class ServiceSDS
      * @param string|null $name2
      * @return void
      */
-    public function setName2(string $name2 = null): void
+    public function setName2(?string $name2 = null): void
     {
         $this->name2 = $name2;
     }
@@ -249,7 +249,7 @@ class ServiceSDS
      * @param string|null $name3
      * @return void
      */
-    public function setName3(string $name3 = null): void
+    public function setName3(?string $name3 = null): void
     {
         $this->name3 = $name3;
     }
@@ -270,7 +270,7 @@ class ServiceSDS
      * @param string|null $country
      * @return void
      */
-    public function setCountry(string $country = null): void
+    public function setCountry(?string $country = null): void
     {
         $this->country = $country;
     }
@@ -291,7 +291,7 @@ class ServiceSDS
      * @param string|null $zipcode
      * @return void
      */
-    public function setZipcode(string $zipcode = null): void
+    public function setZipcode(?string $zipcode = null): void
     {
         $this->zipcode = $zipcode;
     }
@@ -312,7 +312,7 @@ class ServiceSDS
      * @param string|null $city
      * @return void
      */
-    public function setCity(string $city = null): void
+    public function setCity(?string $city = null): void
     {
         $this->city = $city;
     }
@@ -333,7 +333,7 @@ class ServiceSDS
      * @param string|null $street
      * @return void
      */
-    public function setStreet(string $street = null): void
+    public function setStreet(?string $street = null): void
     {
         $this->street = $street;
     }
@@ -354,7 +354,7 @@ class ServiceSDS
      * @param string|null $phone
      * @return void
      */
-    public function setPhone(string $phone = null): void
+    public function setPhone(?string $phone = null): void
     {
         $this->phone = $phone;
     }
@@ -375,7 +375,7 @@ class ServiceSDS
      * @param string|null $email
      * @return void
      */
-    public function setEmail(string $email = null): void
+    public function setEmail(?string $email = null): void
     {
         $this->email = $email;
     }
@@ -396,7 +396,7 @@ class ServiceSDS
      * @param float|null $gps_lati
      * @return void
      */
-    public function setGpsLati(float $gps_lati = null): void
+    public function setGpsLati(?float $gps_lati = null): void
     {
         $this->gps_lati = $gps_lati;
     }
@@ -417,7 +417,7 @@ class ServiceSDS
      * @param float|null $gps_long
      * @return void
      */
-    public function setGpsLong(float $gps_long = null): void
+    public function setGpsLong(?float $gps_long = null): void
     {
         $this->gps_long = $gps_long;
     }
@@ -438,7 +438,7 @@ class ServiceSDS
      * @param string|null $mon_open
      * @return void
      */
-    public function setMonOpen(string $mon_open = null): void
+    public function setMonOpen(?string $mon_open = null): void
     {
         $this->mon_open = $mon_open;
     }
@@ -459,7 +459,7 @@ class ServiceSDS
      * @param string|null $mon_close
      * @return void
      */
-    public function setMonClose(string $mon_close = null): void
+    public function setMonClose(?string $mon_close = null): void
     {
         $this->mon_close = $mon_close;
     }
@@ -480,7 +480,7 @@ class ServiceSDS
      * @param string|null $tue_open
      * @return void
      */
-    public function setTueOpen(string $tue_open = null): void
+    public function setTueOpen(?string $tue_open = null): void
     {
         $this->tue_open = $tue_open;
     }
@@ -501,7 +501,7 @@ class ServiceSDS
      * @param string|null $tue_close
      * @return void
      */
-    public function setTueClose(string $tue_close = null): void
+    public function setTueClose(?string $tue_close = null): void
     {
         $this->tue_close = $tue_close;
     }
@@ -522,7 +522,7 @@ class ServiceSDS
      * @param string|null $wed_open
      * @return void
      */
-    public function setWedOpen(string $wed_open = null): void
+    public function setWedOpen(?string $wed_open = null): void
     {
         $this->wed_open = $wed_open;
     }
@@ -543,7 +543,7 @@ class ServiceSDS
      * @param string|null $wed_close
      * @return void
      */
-    public function setWedClose(string $wed_close = null): void
+    public function setWedClose(?string $wed_close = null): void
     {
         $this->wed_close = $wed_close;
     }
@@ -564,7 +564,7 @@ class ServiceSDS
      * @param string|null $thu_open
      * @return void
      */
-    public function setThuOpen(string $thu_open = null): void
+    public function setThuOpen(?string $thu_open = null): void
     {
         $this->thu_open = $thu_open;
     }
@@ -585,7 +585,7 @@ class ServiceSDS
      * @param string|null $thu_close
      * @return void
      */
-    public function setThuClose(string $thu_close = null): void
+    public function setThuClose(?string $thu_close = null): void
     {
         $this->thu_close = $thu_close;
     }
@@ -606,7 +606,7 @@ class ServiceSDS
      * @param string|null $fri_open
      * @return void
      */
-    public function setFriOpen(string $fri_open = null): void
+    public function setFriOpen(?string $fri_open = null): void
     {
         $this->fri_open = $fri_open;
     }
@@ -626,7 +626,7 @@ class ServiceSDS
      *
      * @param string|null $fri_close
      */
-    public function setFriClose(string $fri_close = null): void
+    public function setFriClose(?string $fri_close = null): void
     {
         $this->fri_close = $fri_close;
     }
@@ -647,7 +647,7 @@ class ServiceSDS
      * @param string|null $sat_open
      * @return void
      */
-    public function setSatOpen(string $sat_open = null): void
+    public function setSatOpen(?string $sat_open = null): void
     {
         $this->sat_open = $sat_open;
     }
@@ -668,7 +668,7 @@ class ServiceSDS
      * @param string|null $sat_close
      * @return void
      */
-    public function setSatClose(string $sat_close = null): void
+    public function setSatClose(?string $sat_close = null): void
     {
         $this->sat_close = $sat_close;
     }
@@ -689,7 +689,7 @@ class ServiceSDS
      * @param string|null $sun_open
      * @return void
      */
-    public function setSunOpen(string $sun_open = null): void
+    public function setSunOpen(?string $sun_open = null): void
     {
         $this->sun_open = $sun_open;
     }
@@ -710,7 +710,7 @@ class ServiceSDS
      * @param string|null $sun_close
      * @return void
      */
-    public function setSunClose(string $sun_close = null): void
+    public function setSunClose(?string $sun_close = null): void
     {
         $this->sun_close = $sun_close;
     }

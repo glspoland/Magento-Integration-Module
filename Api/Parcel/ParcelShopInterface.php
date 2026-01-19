@@ -47,7 +47,7 @@ interface ParcelShopInterface
      * @param string|null $name2
      * @return void
      */
-    public function setName2(string $name2 = null): void;
+    public function setName2(?string $name2 = null): void;
 
     /**
      * Get name3
@@ -62,7 +62,7 @@ interface ParcelShopInterface
      * @param string|null $name3
      * @return void
      */
-    public function setName3(string $name3 = null): void;
+    public function setName3(?string $name3 = null): void;
 
     /**
      * Get country
@@ -137,7 +137,7 @@ interface ParcelShopInterface
      * @param string|null $phone
      * @return void
      */
-    public function setPhone(string $phone = null): void;
+    public function setPhone(?string $phone = null): void;
 
     /**
      * Get email
@@ -152,7 +152,7 @@ interface ParcelShopInterface
      * @param string|null $email
      * @return void
      */
-    public function setEmail(string $email = null): void;
+    public function setEmail(?string $email = null): void;
 
     /**
      * Get gps_lati
@@ -167,7 +167,7 @@ interface ParcelShopInterface
      * @param float|null $gps_lati
      * @return void
      */
-    public function setGpsLati(float $gps_lati = null): void;
+    public function setGpsLati(?float $gps_lati = null): void;
 
     /**
      * Get gps_long
@@ -182,7 +182,7 @@ interface ParcelShopInterface
      * @param float|null $gps_long
      * @return void
      */
-    public function setGpsLong(float $gps_long = null): void;
+    public function setGpsLong(?float $gps_long = null): void;
 
     /**
      * Get MonOpen.
@@ -197,7 +197,7 @@ interface ParcelShopInterface
      * @param string|null $mon_open
      * @return void
      */
-    public function setMonOpen(string $mon_open = null): void;
+    public function setMonOpen(?string $mon_open = null): void;
 
     /**
      * Get MonClose.
@@ -212,7 +212,7 @@ interface ParcelShopInterface
      * @param string|null $mon_close
      * @return void
      */
-    public function setMonClose(string $mon_close = null): void;
+    public function setMonClose(?string $mon_close = null): void;
 
     /**
      * Get TueOpen.
@@ -227,7 +227,7 @@ interface ParcelShopInterface
      * @param string|null $tue_open
      * @return void
      */
-    public function setTueOpen(string $tue_open = null): void;
+    public function setTueOpen(?string $tue_open = null): void;
 
     /**
      * Get TueClose.
@@ -242,7 +242,7 @@ interface ParcelShopInterface
      * @param string|null $tue_close
      * @return void
      */
-    public function setTueClose(string $tue_close = null): void;
+    public function setTueClose(?string $tue_close = null): void;
 
     /**
      * Get WedOpen.
@@ -257,7 +257,7 @@ interface ParcelShopInterface
      * @param string|null $wed_open
      * @return void
      */
-    public function setWedOpen(string $wed_open = null): void;
+    public function setWedOpen(?string $wed_open = null): void;
 
     /**
      * Get WedClose.
@@ -272,7 +272,7 @@ interface ParcelShopInterface
      * @param string|null $wed_close
      * @return void
      */
-    public function setWedClose(string $wed_close = null): void;
+    public function setWedClose(?string $wed_close = null): void;
 
     /**
      * Get ThuOpen.
@@ -287,7 +287,7 @@ interface ParcelShopInterface
      * @param string|null $thu_open
      * @return void
      */
-    public function setThuOpen(string $thu_open = null): void;
+    public function setThuOpen(?string $thu_open = null): void;
 
     /**
      * Get ThuClose.
@@ -302,7 +302,7 @@ interface ParcelShopInterface
      * @param string|null $thu_close
      * @return void
      */
-    public function setThuClose(string $thu_close = null): void;
+    public function setThuClose(?string $thu_close = null): void;
 
     /**
      * Get FriOpen.
@@ -317,7 +317,7 @@ interface ParcelShopInterface
      * @param string|null $fri_open
      * @return void
      */
-    public function setFriOpen(string $fri_open = null): void;
+    public function setFriOpen(?string $fri_open = null): void;
 
     /**
      * Get FriClose.
@@ -332,7 +332,7 @@ interface ParcelShopInterface
      * @param string|null $fri_close
      * @return void
      */
-    public function setFriClose(string $fri_close = null): void;
+    public function setFriClose(?string $fri_close = null): void;
 
     /**
      * Get SatOpen.
@@ -347,7 +347,7 @@ interface ParcelShopInterface
      * @param string|null $sat_open
      * @return void
      */
-    public function setSatOpen(string $sat_open = null): void;
+    public function setSatOpen(?string $sat_open = null): void;
 
     /**
      * Get SatClose.
@@ -362,7 +362,7 @@ interface ParcelShopInterface
      * @param string|null $sat_close
      * @return void
      */
-    public function setSatClose(string $sat_close = null): void;
+    public function setSatClose(?string $sat_close = null): void;
 
     /**
      * Get SunOpen.
@@ -377,7 +377,7 @@ interface ParcelShopInterface
      * @param string|null $sun_open
      * @return void
      */
-    public function setSunOpen(string $sun_open = null): void;
+    public function setSunOpen(?string $sun_open = null): void;
 
     /**
      * Get SunClose.
@@ -392,7 +392,7 @@ interface ParcelShopInterface
      * @param string|null $sun_close
      * @return void
      */
-    public function setSunClose(string $sun_close = null): void;
+    public function setSunClose(?string $sun_close = null): void;
 
     /**
      * Get Distance.

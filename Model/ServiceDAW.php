@@ -36,11 +36,11 @@ class ServiceDAW
      */
     public function __construct(
         string $name,
-        string $building = null,
-        string $floor = null,
-        string $room = null,
-        string $phone = null,
-        string $altrec = null
+        ?string $building = null,
+        ?string $floor = null,
+        ?string $room = null,
+        ?string $phone = null,
+        ?string $altrec = null
     ) {
         $this->setName($name);
         $this->setBuilding($building);
@@ -87,7 +87,7 @@ class ServiceDAW
      * @param string|null $building
      * @return void
      */
-    public function setBuilding(string $building = null): void
+    public function setBuilding(?string $building = null): void
     {
         $this->building = $building;
     }
@@ -108,7 +108,7 @@ class ServiceDAW
      * @param string|null $floor
      * @return void
      */
-    public function setFloor(string $floor = null): void
+    public function setFloor(?string $floor = null): void
     {
         $this->floor = $floor;
     }
@@ -129,7 +129,7 @@ class ServiceDAW
      * @param string|null $room
      * @return void
      */
-    public function setRoom(string $room = null): void
+    public function setRoom(?string $room = null): void
     {
         $this->room = $room;
     }
@@ -150,7 +150,7 @@ class ServiceDAW
      * @param string|null $phone
      * @return void
      */
-    public function setPhone(string $phone = null): void
+    public function setPhone(?string $phone = null): void
     {
         $this->phone = $phone;
     }
@@ -171,7 +171,7 @@ class ServiceDAW
      * @param string|null $altrec
      * @return void
      */
-    public function setAltrec(string $altrec = null): void
+    public function setAltrec(?string $altrec = null): void
     {
         $this->altrec = $altrec;
     }

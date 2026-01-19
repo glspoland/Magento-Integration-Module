@@ -62,7 +62,7 @@ class Parcel implements ParcelInterface
      * @param string|null $number
      * @return void
      */
-    public function setNumber(string $number = null): void
+    public function setNumber(?string $number = null): void
     {
         $this->number = $number;
     }

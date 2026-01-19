@@ -109,10 +109,10 @@ class ServiceBOOL implements ServiceBOOLInterface
         bool $ow,
         bool $srs,
         bool $sds,
-        bool $cdx = null,
-        float $cdx_amount = null,
-        string $cdx_currency = null,
-        bool $ado = null
+        ?bool $cdx = null,
+        ?float $cdx_amount = null,
+        ?string $cdx_currency = null,
+        ?bool $ado = null
     ) {
         $this->setCod($cod);
         $this->setCodAmount($cod_amount);
@@ -488,7 +488,7 @@ class ServiceBOOL implements ServiceBOOLInterface
      * @param bool|null $cdx
      * @return void
      */
-    public function setCdx(bool $cdx = null): void
+    public function setCdx(?bool $cdx = null): void
     {
         $this->cdx = $cdx;
     }
@@ -509,7 +509,7 @@ class ServiceBOOL implements ServiceBOOLInterface
      * @param float|null $cdx_amount
      * @return void
      */
-    public function setCdxAmount(float $cdx_amount = null): void
+    public function setCdxAmount(?float $cdx_amount = null): void
     {
         $this->cdx_amount = $cdx_amount;
     }
@@ -530,7 +530,7 @@ class ServiceBOOL implements ServiceBOOLInterface
      * @param string|null $cdx_currency
      * @return void
      */
-    public function setCdxCurrency(string $cdx_currency = null): void
+    public function setCdxCurrency(?string $cdx_currency = null): void
     {
         $this->cdx_currency = $cdx_currency;
     }
@@ -551,7 +551,7 @@ class ServiceBOOL implements ServiceBOOLInterface
      * @param bool|null $ado
      * @return void
      */
-    public function setAdo(bool $ado = null): void
+    public function setAdo(?bool $ado = null): void
     {
         $this->ado = $ado;
     }

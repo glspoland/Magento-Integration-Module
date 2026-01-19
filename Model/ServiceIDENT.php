@@ -71,15 +71,15 @@ class ServiceIDENT
         string $zipcode,
         string $city,
         string $street,
-        string $date_birth = null,
-        string $identity = null,
-        int $ident_doctype = null,
-        string $nation = null,
-        string $national_idnum = null,
-        int $spages = null,
-        int $ssign = null,
-        int $sdealsend = null,
-        int $sdealrec = null
+        ?string $date_birth = null,
+        ?string $identity = null,
+        ?int $ident_doctype = null,
+        ?string $nation = null,
+        ?string $national_idnum = null,
+        ?int $spages = null,
+        ?int $ssign = null,
+        ?int $sdealsend = null,
+        ?int $sdealrec = null
     ) {
         $this->setName($name);
         $this->setCountry($country);
@@ -218,7 +218,7 @@ class ServiceIDENT
      * @param string|null $date_birth
      * @return void
      */
-    public function setDateBirth(string $date_birth = null): void
+    public function setDateBirth(?string $date_birth = null): void
     {
         $this->date_birth = $date_birth;
     }
@@ -239,7 +239,7 @@ class ServiceIDENT
      * @param string|null $identity
      * @return void
      */
-    public function setIdentity(string $identity = null): void
+    public function setIdentity(?string $identity = null): void
     {
         $this->identity = $identity;
     }
@@ -260,7 +260,7 @@ class ServiceIDENT
      * @param int|null $ident_doctype
      * @return void
      */
-    public function setIdentDoctype(int $ident_doctype = null): void
+    public function setIdentDoctype(?int $ident_doctype = null): void
     {
         $this->ident_doctype = $ident_doctype;
     }
@@ -281,7 +281,7 @@ class ServiceIDENT
      * @param string|null $nation
      * @return void
      */
-    public function setNation(string $nation = null): void
+    public function setNation(?string $nation = null): void
     {
         $this->nation = $nation;
     }
@@ -302,7 +302,7 @@ class ServiceIDENT
      * @param string|null $national_idnum
      * @return void
      */
-    public function setNationalIdnum(string $national_idnum = null): void
+    public function setNationalIdnum(?string $national_idnum = null): void
     {
         $this->national_idnum = $national_idnum;
     }
@@ -323,7 +323,7 @@ class ServiceIDENT
      * @param int|null $spages
      * @return void
      */
-    public function setSpages(int $spages = null): void
+    public function setSpages(?int $spages = null): void
     {
         $this->spages = $spages;
     }
@@ -344,7 +344,7 @@ class ServiceIDENT
      * @param int|null $ssign
      * @return void
      */
-    public function setSsign(int $ssign = null): void
+    public function setSsign(?int $ssign = null): void
     {
         $this->ssign = $ssign;
     }
@@ -365,7 +365,7 @@ class ServiceIDENT
      * @param int|null $sdealsend
      * @return void
      */
-    public function setSdealsend(int $sdealsend = null): void
+    public function setSdealsend(?int $sdealsend = null): void
     {
         $this->sdealsend = $sdealsend;
     }
@@ -386,7 +386,7 @@ class ServiceIDENT
      * @param int|null $sdealrec
      * @return void
      */
-    public function setSdealrec(int $sdealrec = null): void
+    public function setSdealrec(?int $sdealrec = null): void
     {
         $this->sdealrec = $sdealrec;
     }

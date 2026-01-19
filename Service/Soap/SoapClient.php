@@ -59,7 +59,7 @@ class SoapClient
      * @param string|null $wsdl
      * @return SoapMagentoClient
      */
-    public function configureClient(string $wsdl = null): SoapMagentoClient
+    public function configureClient(?string $wsdl = null): SoapMagentoClient
     {
         $options = ['trace' => 1];
         $soapClient = $this->soapClientFactory->create(

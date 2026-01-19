@@ -102,15 +102,15 @@ class ServicePPE
         string $rcity,
         string $rstreet,
         float $weight,
-        string $sname2 = null,
-        string $sname3 = null,
-        string $sphone = null,
-        string $scontact = null,
-        string $rname2 = null,
-        string $rname3 = null,
-        string $rphone = null,
-        string $rcontact = null,
-        string $references = null
+        ?string $sname2 = null,
+        ?string $sname3 = null,
+        ?string $sphone = null,
+        ?string $scontact = null,
+        ?string $rname2 = null,
+        ?string $rname3 = null,
+        ?string $rphone = null,
+        ?string $rcontact = null,
+        ?string $references = null
     ) {
         $this->setSname1($sname1);
         $this->setSname2($sname2);

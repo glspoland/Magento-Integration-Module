@@ -32,7 +32,7 @@ class DateHelper
      * @param bool $useTimezone
      * @return string|null
      */
-    public function getDate(string $date = null, string $format = 'Y-m-d H:i:s', bool $useTimezone = true): ?string
+    public function getDate(?string $date = null, string $format = 'Y-m-d H:i:s', bool $useTimezone = true): ?string
     {
         try {
             $timezone = $useTimezone ? $this->timezone->getConfigTimezone() : 'UTC';
@@ -51,7 +51,7 @@ class DateHelper
      * @param bool $useTimezone
      * @return string
      */
-    public function getNextWorkDay(string $date = null, bool $useTimezone = true): string
+    public function getNextWorkDay(?string $date = null, bool $useTimezone = true): string
     {
         try {
             $timezone = $useTimezone ? $this->timezone->getConfigTimezone() : 'UTC';
@@ -78,7 +78,7 @@ class DateHelper
      * @param bool $useTimezone
      * @return bool|null
      */
-    public function checkIfWorkDay(string $date = null, bool $useTimezone = true): ?bool
+    public function checkIfWorkDay(?string $date = null, bool $useTimezone = true): ?bool
     {
         try {
             $timezone = $useTimezone ? $this->timezone->getConfigTimezone() : 'UTC';
@@ -99,7 +99,7 @@ class DateHelper
      * @param bool $useTimezone
      * @return bool
      */
-    public function checkIfHoliday(string $date = null, bool $useTimezone = true): bool
+    public function checkIfHoliday(?string $date = null, bool $useTimezone = true): bool
     {
         try {
             $timezone = $useTimezone ? $this->timezone->getConfigTimezone() : 'UTC';

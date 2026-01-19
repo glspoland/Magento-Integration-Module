@@ -87,7 +87,7 @@ class SoapSession
      * @param string|null $wsdl
      * @return string|null
      */
-    public function login(string $username = null, string $password = null, string $wsdl = null): ?string
+    public function login(?string $username = null, ?string $password = null, ?string $wsdl = null): ?string
     {
         try {
             $request = [

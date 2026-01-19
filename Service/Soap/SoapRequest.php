@@ -1536,7 +1536,7 @@ class SoapRequest
      * @param array|null $properties
      * @return bool|string
      */
-    private function validApiResult(mixed $data, string $className = null, array $properties = null): bool|string
+    private function validApiResult(mixed $data, ?string $className = null, ?array $properties = null): bool|string
     {
         try {
             if (!is_array($data) && !is_object($data)) {

@@ -257,7 +257,7 @@ interface ServiceBOOLInterface
      * @param bool|null $cdx
      * @return void
      */
-    public function setCdx(bool $cdx = null): void;
+    public function setCdx(?bool $cdx = null): void;
 
     /**
      * Get Cdx Amount
@@ -272,7 +272,7 @@ interface ServiceBOOLInterface
      * @param float|null $cdx_amount
      * @return void
      */
-    public function setCdxAmount(float $cdx_amount = null): void;
+    public function setCdxAmount(?float $cdx_amount = null): void;
 
     /**
      * Get Cdx Currency
@@ -287,7 +287,7 @@ interface ServiceBOOLInterface
      * @param string|null $cdx_currency
      * @return void
      */
-    public function setCdxCurrency(string $cdx_currency = null): void;
+    public function setCdxCurrency(?string $cdx_currency = null): void;
 
     /**
      * Get Ado
@@ -302,5 +302,5 @@ interface ServiceBOOLInterface
      * @param bool|null $ado
      * @return void
      */
-    public function setAdo(bool $ado = null): void;
+    public function setAdo(?bool $ado = null): void;
 }
