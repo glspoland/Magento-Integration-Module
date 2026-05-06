@@ -96,6 +96,9 @@ script;
 ?>
 <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
 <?= /* @noEscape */ $block->getLayout()
-    ->createBlock(\Magento\Framework\View\Element\Template::class)
-    ->setTemplate('Magento_Shipping::order/packaging/popup_content.phtml')
+    ->createBlock(\Magento\Shipping\Block\Adminhtml\Order\Packaging::class)
+    ->addData($block->getData())
+    ->assign('girthEnabled', $girthEnabled)
+    ->assign('sizeSource', $sizeSource)
+    ->setTemplate('GlsPoland_Shipping::order/packaging/popup_content.phtml')
     ->toHtml() ?>
