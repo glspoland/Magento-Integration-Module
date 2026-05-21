@@ -2,7 +2,7 @@
     "name": "glspoland/module-shipping",
     "description": "GLS Poland carrier integration for Magento 2",
     "type": "magento2-module",
-    "version": "0.0.32",
+    "version": "0.0.33",
     "license": "OSL-3.0",
     "authors": [
         {
