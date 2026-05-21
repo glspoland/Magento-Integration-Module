@@ -93,18 +93,9 @@ class SoapSession
     public function login(?string $username = null, ?string $password = null, ?string $wsdl = null): ?string
     {
         try {
-            $resolvedUsername = $username ?? $this->config->getUserName();
-            $resolvedPassword = $password ?? $this->config->getPassword();
-
-            $this->log->add(
-                $this->log::LOG_TYPE_INFO,
-                'GLS API',
-                sprintf('[%s] Attempting login with username: %s, password: %s', __METHOD__, $resolvedUsername, $resolvedPassword)
-            );
-
             $request = [
-                'user_name'=> $resolvedUsername,
-                'user_password' => $resolvedPassword,
+                'user_name'=> $username ?? $this->config->getUserName(),
+                'user_password' => $password ?? $this->config->getPassword(),
                 'integrator' => $this->config->getIntegratorId()
             ];
 

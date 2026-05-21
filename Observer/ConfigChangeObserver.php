@@ -61,16 +61,11 @@ class ConfigChangeObserver implements ObserverInterface
      */
     public function execute(Observer $observer): void
     {
-        error_log('[ConfigChangeObserver] Config saved — observer triggered.');
         $this->cacheInterface->clean(['config']);
         $this->reinitableConfig->reinit();
-        error_log('[ConfigChangeObserver] Config cache cleaned and reinitialized.');
 
         if ($this->config->getModuleEnable()) {
-            error_log('[ConfigChangeObserver] Module is enabled, running validateServices.');
             $this->validateServices();
-        } else {
-            error_log('[ConfigChangeObserver] Module is disabled, skipping validateServices.');
         }
     }
 
@@ -81,11 +76,9 @@ class ConfigChangeObserver implements ObserverInterface
      */
     private function validateServices(): void
     {
-        error_log('[ConfigChangeObserver] Calling getServicesAllowed...');
         $serviceBOOL = $this->apiHandler->getServicesAllowed();
 
         if ($serviceBOOL !== null) {
-            error_log('[ConfigChangeObserver] getServicesAllowed returned a result.');
             $addErrorMessage = false;
 
             foreach (ShippingMethods::METHODS as $shippingCode => $shippingMethod) {
@@ -132,21 +125,15 @@ class ConfigChangeObserver implements ObserverInterface
                 );
                 $this->cacheInterface->clean(['config']);
             }
-        } else {
-            error_log('[ConfigChangeObserver] getServicesAllowed returned null — login likely failed.');
         }
 
-        error_log('[ConfigChangeObserver] Calling getServicesMaxCOD...');
         $servicesMaxCOD = $this->apiHandler->getServicesMaxCOD();
-        error_log(sprintf('[ConfigChangeObserver] getServicesMaxCOD returned: %s', $servicesMaxCOD !== null ? (string)$servicesMaxCOD : 'null'));
 
         if ($servicesMaxCOD !== null) {
             $this->config->setServicesMaxCOD($servicesMaxCOD);
-            error_log('[ConfigChangeObserver] Max COD saved to config.');
         }
 
         $servicesCountriesSDS = $this->apiHandler->getServicesCountriesSDS();
-        error_log(sprintf('[ConfigChangeObserver] getServicesCountriesSDS returned: %s', $servicesCountriesSDS !== null ? implode(',', $servicesCountriesSDS) : 'null'));
 
         if ($servicesCountriesSDS !== null) {
             $this->config->setServicesCountriesSDS($servicesCountriesSDS);

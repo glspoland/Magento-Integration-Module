@@ -48,8 +48,6 @@ class CanUseForShippingMethod implements SpecificationInterface
         $isGlsParcelShop = ShippingMethods::METHODS[$shippingMethodCode]['code'] === 'gls_parcel_shop';
         $isCodOnly = !empty(ShippingMethods::METHODS[$shippingMethodCode]['cod_only']);
         $servicesMaxCOD = $this->config->getServicesMaxCOD();
-        var_dump($servicesMaxCOD);die;
-
         $shippingMethodCod = $this->config->getShippingMethodCod($shippingMethodCode);
 
         if ($countryId !== null && $countryId !== 'PL' && $isCashOnDelivery) {
@@ -71,7 +69,6 @@ class CanUseForShippingMethod implements SpecificationInterface
         if ($isCodOnly && !$isCashOnDelivery) {
             return false;
         }
-
 
         return true;
     }
