@@ -90,6 +90,7 @@
 "GLS - Courier","GLS - Courier"
 "GLS - Standard delivery (without services)","GLS - Standard delivery (without services)"
 "GLS - Standard delivery (without services - cash on delivery)","GLS - Standard delivery (without services - cash on delivery)"
+"Note: The <strong>Cash on Delivery</strong> payment method must be enabled for this shipping method to work.","Note: The <strong>Cash on Delivery</strong> payment method must be enabled for this shipping method to work."
 "GLS - Express delivery 10:00 a.m.","GLS - Express delivery 10:00 a.m."
 "GLS - Express delivery 12:00 a.m.","GLS - Express delivery 12:00 a.m."
 "GLS - Saturday delivery","GLS - Saturday delivery"

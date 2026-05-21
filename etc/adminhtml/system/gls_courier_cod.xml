@@ -7,6 +7,7 @@ showInWebsite="1" showInStore="1">
             <field id="module_enable">1</field>
         </depends>
         <label>GLS - Standard delivery (without services - cash on delivery)</label>
+        <comment><![CDATA[Note: The <strong>Cash on Delivery</strong> payment method must be enabled for this shipping method to work.]]></comment>
         <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1"
 showInWebsite="1" showInStore="1">
             <label>Enabled</label>
