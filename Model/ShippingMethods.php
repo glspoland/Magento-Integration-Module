@@ -60,6 +60,15 @@ class ShippingMethods
             's10' => false,
             's12' => false,
         ],
+        'glspoland_gls_courier_with_cod' => [
+            'code' => 'gls_courier_with_cod',
+            'config_path' => 'carriers/glspoland/courier/gls_courier_with_cod',
+            'parcel' => false,
+            'sat' => false,
+            's10' => false,
+            's12' => false,
+            'cod_only' => true,
+        ],
         'glspoland_gls_parcel_shop' => [
             'code' => 'gls_parcel_shop',
             'config_path' => 'carriers/glspoland/gls_parcel_shop',

@@ -53,12 +53,13 @@ class PaymentMethodIsActiveObserver implements ObserverInterface
             $isCashOnDelivery = $paymentMethodCode === 'cashondelivery';
             $isOffline = $methodInstance->isOffline();
             $isGlsParcelShop = ShippingMethods::METHODS[$shippingMethodCode]['code'] === 'gls_parcel_shop';
+            $isCodOnly = !empty(ShippingMethods::METHODS[$shippingMethodCode]['cod_only']);
             $servicesMaxCOD = $this->config->getServicesMaxCOD();
             $shippingMethodCod = $this->config->getShippingMethodCod($shippingMethodCode);
 
             $result = $observer->getEvent()->getResult();
 
-            if ($countryId !== null && $countryId !== 'PL' && ($isCashOnDelivery || !$isOffline)) {
+            if ($countryId !== null && $countryId !== 'PL' && $isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
 
@@ -71,6 +72,10 @@ class PaymentMethodIsActiveObserver implements ObserverInterface
             }
 
             if (!$shippingMethodCod && ($isCashOnDelivery || !$isOffline)) {
+                $result->setData('is_available', false);
+            }
+
+            if ($isCodOnly && !$isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
         }

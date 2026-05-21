@@ -1263,9 +1263,11 @@ class SoapRequest
                 ]
             );
 
+            $maxCod = $response->return->max_cod ?? null;
+
             if ($this->config->isDebugEnabled()) {
                 $this->log->add(
-                    !is_float((float)$response->return->max_cod)
+                    !is_numeric($maxCod)
                         ? $this->log::LOG_TYPE_ERROR
                         : $this->log::LOG_TYPE_INFO,
                     'GLS API',
@@ -1274,18 +1276,18 @@ class SoapRequest
                         __METHOD__,
                         $this->toString($this->soapClient->getSoapClient()->__getLastRequest()),
                         $this->toString($response->return),
-                        !is_float((float)$response->return->max_cod)
+                        !is_numeric($maxCod)
                             ? 'Unexpected API response: Result is not float'
                             : 'API response: result is valid'
                     )
                 );
             }
 
-            if (!is_float((float)$response->return->max_cod)) {
+            if (!is_numeric($maxCod)) {
                 return null;
             }
 
-            return (float)$response->return->max_cod;
+            return (float)$maxCod;
 
         } catch (SoapFault $fault) {
             if ($this->config->isDebugEnabled()) {

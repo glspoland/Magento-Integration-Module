@@ -44,26 +44,34 @@ class CanUseForShippingMethod implements SpecificationInterface
         $countryId = $quote->getShippingAddress()->getCountryId();
         $paymentMethodCode = $paymentMethod->getCode();
         $isCashOnDelivery = $paymentMethodCode === 'cashondelivery';
-        $isOffline = $paymentMethod->isOffline();
+
         $isGlsParcelShop = ShippingMethods::METHODS[$shippingMethodCode]['code'] === 'gls_parcel_shop';
+        $isCodOnly = !empty(ShippingMethods::METHODS[$shippingMethodCode]['cod_only']);
         $servicesMaxCOD = $this->config->getServicesMaxCOD();
+        var_dump($servicesMaxCOD);die;
+
         $shippingMethodCod = $this->config->getShippingMethodCod($shippingMethodCode);
 
-        if ($countryId !== null && $countryId !== 'PL' && ($isCashOnDelivery || !$isOffline)) {
+        if ($countryId !== null && $countryId !== 'PL' && $isCashOnDelivery) {
             return false;
         }
 
-        if ($servicesMaxCOD !== null && $quoteValue > $servicesMaxCOD && ($isCashOnDelivery || !$isOffline)) {
+        if ($servicesMaxCOD !== null && $quoteValue > $servicesMaxCOD && $isCashOnDelivery) {
             return false;
         }
 
-        if ($isGlsParcelShop && ($isCashOnDelivery || !$isOffline)) {
+        if ($isGlsParcelShop && $isCashOnDelivery) {
             return false;
         }
 
-        if (!$shippingMethodCod && ($isCashOnDelivery || !$isOffline)) {
+        if (!$isCodOnly && !$shippingMethodCod && $isCashOnDelivery) {
             return false;
         }
+
+        if ($isCodOnly && !$isCashOnDelivery) {
+            return false;
+        }
+
 
         return true;
     }

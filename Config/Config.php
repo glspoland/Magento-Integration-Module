@@ -622,11 +622,13 @@ class Config implements VersionInterface
      */
     public function getServicesMaxCOD(): ?float
     {
-        return $this->configHelper->toFloat(
-            $this->scopeConfig->getValue(
-                self::CONFIG_PATH_MAX_COD
-            )
-        );
+        $value = $this->scopeConfig->getValue(self::CONFIG_PATH_MAX_COD);
+
+        if ($value === null || $value === '') {
+            return null;
+        }
+
+        return $this->configHelper->toFloat($value);
     }
 
     /**

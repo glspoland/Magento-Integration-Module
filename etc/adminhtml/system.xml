@@ -173,6 +173,7 @@
                     <include path="GlsPoland_Shipping::system/gls_courier_sat.xml"/>
                     <include path="GlsPoland_Shipping::system/gls_courier_sat_10.xml"/>
                     <include path="GlsPoland_Shipping::system/gls_courier_sat_12.xml"/>
+                    <include path="GlsPoland_Shipping::system/gls_courier_cod.xml"/>
                 </group>
                 <group id="gls_parcel_shop" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>GLS pickup point</label>
