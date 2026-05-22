@@ -5,7 +5,7 @@
             <glspoland>
                 <model>GlsPoland\Shipping\Model\Carrier\GlsShippingMethods</model>
                 <is_online>1</is_online>
-                <version>0.0.33</version>
+                <version>0.0.34</version>
                 <title>GLS Poland</title>
                 <active>1</active>
                 <mode>production</mode>
