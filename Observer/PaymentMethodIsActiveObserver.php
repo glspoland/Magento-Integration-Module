@@ -51,26 +51,30 @@ class PaymentMethodIsActiveObserver implements ObserverInterface
             $countryId = $quote->getShippingAddress()->getCountryId();
             $paymentMethodCode = $methodInstance->getCode();
             $isCashOnDelivery = $paymentMethodCode === 'cashondelivery';
-            $isOffline = $methodInstance->isOffline();
             $isGlsParcelShop = ShippingMethods::METHODS[$shippingMethodCode]['code'] === 'gls_parcel_shop';
+            $isCodOnly = !empty(ShippingMethods::METHODS[$shippingMethodCode]['cod_only']);
             $servicesMaxCOD = $this->config->getServicesMaxCOD();
             $shippingMethodCod = $this->config->getShippingMethodCod($shippingMethodCode);
 
             $result = $observer->getEvent()->getResult();
 
-            if ($countryId !== null && $countryId !== 'PL' && ($isCashOnDelivery || !$isOffline)) {
+            if ($countryId !== null && $countryId !== 'PL' && $isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
 
-            if ($servicesMaxCOD !== null && $quoteValue > $servicesMaxCOD && ($isCashOnDelivery || !$isOffline)) {
+            if ($servicesMaxCOD !== null && $quoteValue > $servicesMaxCOD && $isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
 
-            if ($isGlsParcelShop && ($isCashOnDelivery || !$isOffline)) {
+            if ($isGlsParcelShop && $isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
 
-            if (!$shippingMethodCod && ($isCashOnDelivery || !$isOffline)) {
+            if (!$isCodOnly && !$shippingMethodCod && $isCashOnDelivery) {
+                $result->setData('is_available', false);
+            }
+
+            if ($isCodOnly && !$isCashOnDelivery) {
                 $result->setData('is_available', false);
             }
         }

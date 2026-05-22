@@ -11,6 +11,7 @@ use GlsPoland\Shipping\Model\ApiHandler;
 use GlsPoland\Shipping\Model\ShippingMethods;
 use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\App\CacheInterface;
+use Magento\Framework\App\Config\ReinitableConfigInterface;
 
 class ConfigChangeObserver implements ObserverInterface
 {
@@ -26,6 +27,9 @@ class ConfigChangeObserver implements ObserverInterface
     /** @var CacheInterface */
     protected CacheInterface $cacheInterface;
 
+    /** @var ReinitableConfigInterface */
+    private ReinitableConfigInterface $reinitableConfig;
+
     /**
      * Constructor class
      *
@@ -33,17 +37,20 @@ class ConfigChangeObserver implements ObserverInterface
      * @param ApiHandler $apiHandler
      * @param ManagerInterface $messageManager
      * @param CacheInterface $cacheInterface
+     * @param ReinitableConfigInterface $reinitableConfig
      */
     public function __construct(
         Config $config,
         ApiHandler $apiHandler,
         ManagerInterface $messageManager,
-        CacheInterface $cacheInterface
+        CacheInterface $cacheInterface,
+        ReinitableConfigInterface $reinitableConfig
     ) {
         $this->config = $config;
         $this->apiHandler = $apiHandler;
         $this->messageManager = $messageManager;
         $this->cacheInterface = $cacheInterface;
+        $this->reinitableConfig = $reinitableConfig;
     }
 
     /**
@@ -54,6 +61,9 @@ class ConfigChangeObserver implements ObserverInterface
      */
     public function execute(Observer $observer): void
     {
+        $this->cacheInterface->clean(['config']);
+        $this->reinitableConfig->reinit();
+
         if ($this->config->getModuleEnable()) {
             $this->validateServices();
         }

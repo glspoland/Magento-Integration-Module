@@ -37,7 +37,6 @@ class SoapSession
         $this->soapClient = $soapClient;
         $this->config = $config;
         $this->log = $log;
-        $this->login();
     }
 
     /**
@@ -55,6 +54,10 @@ class SoapSession
      */
     public function getSoapSession(): ?string
     {
+        if ($this->soapSession === null) {
+            $this->login();
+        }
+
         return $this->soapSession;
     }
 

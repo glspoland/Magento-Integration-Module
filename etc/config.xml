@@ -5,7 +5,7 @@
             <glspoland>
                 <model>GlsPoland\Shipping\Model\Carrier\GlsShippingMethods</model>
                 <is_online>1</is_online>
-                <version>0.0.32</version>
+                <version>0.0.34</version>
                 <title>GLS Poland</title>
                 <active>1</active>
                 <mode>production</mode>
@@ -87,6 +87,17 @@
                         <allow_specific>1</allow_specific>
                         <specific_country>PL</specific_country>
                     </gls_courier_sat_12>
+                    <gls_courier_with_cod>
+                        <active>0</active>
+                        <name>Kurier GLS - za pobraniem</name>
+                        <title>Transport zajmie 1-2 dni roboczych</title>
+                        <price>10</price>
+                        <free_shipping_enable>0</free_shipping_enable>
+                        <position>7</position>
+                        <weight>30</weight>
+                        <allow_specific>1</allow_specific>
+                        <specific_country>PL</specific_country>
+                    </gls_courier_with_cod>
                 </courier>
                 <gls_parcel_shop>
                     <active>0</active>

@@ -16,7 +16,7 @@ Then you can require the repo with:
 
 
 ```bash
-composer require glspoland/module-shipping:0.0.32
+composer require glspoland/module-shipping:0.0.34
 ```
 
 ### Module Setup
